@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* Base styles */
+body {
+    font-family: 'Times New Roman', serif;
+    font-size: 26px;
+    line-height: 1.5;
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 2rem;
+    color: #1a1a1a;
+    background-color: #fffbea;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Times New Roman', serif;
+    line-height: 1.4;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #000000;
+}
+
+/* Paragraphs */
+p {
+    margin: 1.2rem 0;
+    text-align: justify;
+    padding: 0.5rem 2rem;
+}
+
+/* Lists */
+ul, ol {
+    margin: 1rem 0 1rem 2rem;
+}
+
+/* Links */
+a {
+    color: #0b5ed7;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+    border-radius: 6px;
+}
+
+/* Blockquotes */
+blockquote {
+    font-style: italic;
+    margin: 1.5rem;
+    padding-left: 1rem;
+    border-left: 3px solid #999;
+    color: #444;
+}
+
+/* Code */
+pre, code {
+    font-family: monospace;
+    background: #f3f3f3;
+    color: #222;
+    padding: 0.3em 0.5em;
+    border-radius: 5px;
+}
+
+/* Details + Summary */
+details {
+    background: #fff3d1;
+    border-radius: 6px;
+    padding: 1rem;
+    margin: 1.2rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+summary {
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+    margin-bottom: 0.5rem;
+    padding: 1rem 2rem;
+    background: #ffeab6;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+summary:hover {
+    background: #ffe08c;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+details[open] summary {
+    margin-bottom: 0.8rem;
+}
+
+/* Custom summary arrow */
+summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+    a::after {
+        content: " (" attr(href) ")";
+    }
+}
