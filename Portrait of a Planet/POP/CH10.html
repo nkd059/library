@@ -2,8 +2,14 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>CHAPTER 10 A Violent Pulse Earthquakes </title>
+    <title>CHAPTER 7 Pages of the Earth’s Past: Sedimentary Rocks</title>
     <link id="stylesheet" rel="stylesheet" href="mystyle.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Merienda:wght@300..900&display=swap" rel="stylesheet">
+
+
     <style>
         /* Style Switcher Buttons */
         .style-buttons {
@@ -55,7 +61,24 @@
         <button onclick="changeStyle('style4.css')">Style 4</button>
     </div>
 
+    <!-- Floating Button -->
+    <div id="fontSizeToggle" class="floating-button" onclick="toggleFontSizePanel()">
+        🔤
+    </div>
 
+    <!-- Font Size Control Panel -->
+    <div id="fontSizePanel" class="font-size-panel">
+        <label for="fontSlider">Text Size:</label>
+        <input type="range" id="fontSlider" min="10" max="40" value="16">
+        <span id="fontSizeDisplay">16px</span>
+        <div class="button-group">
+            <button onclick="adjustFontSize(-1)">−</button>
+            <button onclick="setFontSize(12)">Small</button>
+            <button onclick="setFontSize(16)">Medium</button>
+            <button onclick="setFontSize(24)">Large</button>
+            <button onclick="adjustFontSize(1)">+</button>
+        </div>
+    </div>
 
 <article id="1d6971fe-bd2f-80bc-860a-f374f0b7f1d9" class="page sans">
         <header>
@@ -66,7 +89,7 @@
             <p id="1d6971fe-bd2f-802b-8091-da0136dea151" class="">
             </p>
             <details close="">
-                <summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>By reading this chapter, you should be able to . . .</strong></summary>
+                <summary style="font-weight:400;font-size:1em;line-height:1.25;margin:0"><strong>By reading this chapter, you should be able to . . .</strong></summary>
                 <div class="indented">
                     <ol type="1" id="1d6971fe-bd2f-8098-aac6-c807817f4e14" class="numbered-list" start="1">
                         <li>characterize an earthquake, and explain why most are associated either with fracturing to form new faults or with slip episodes on pre-existing faults.</li>
@@ -637,7 +660,7 @@
                             class="">
                             </p>
                             <details close="">
-                                <summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">SEE FOR YOURSELF . . . San Andreas fault, California</summary>
+                                <summary style="font-weight:400;font-size:1em;line-height:1.25;margin:0">SEE FOR YOURSELF . . . San Andreas fault, California</summary>
                                 <div class="indented">
                                     <figure id="1d6971fe-bd2f-80c3-b6b5-d433e76bfd8e" class="image">
                                         <a href="https://lh7-rt.googleusercontent.com/docsz/AD_4nXczMvcef4AH0g42L1i2EbOrRsw6C4hsEKs1dL59UfAReRdxk6OnpAyu6StpwgSurKw8SiMFl4Crh8vTi4YcVx0kriaa9OnnQg8HhLLPWOApvYgZnT3SJUsPmdbr2pFEuXqOtFVDhtbHYasWR2N00_Y?key=sLaiAX-jUxSKndyjkR4j5wPr"><img style="width:284px" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXczMvcef4AH0g42L1i2EbOrRsw6C4hsEKs1dL59UfAReRdxk6OnpAyu6StpwgSurKw8SiMFl4Crh8vTi4YcVx0kriaa9OnnQg8HhLLPWOApvYgZnT3SJUsPmdbr2pFEuXqOtFVDhtbHYasWR2N00_Y?key=sLaiAX-jUxSKndyjkR4j5wPr"
@@ -682,7 +705,7 @@
                         </div>
                     </details>
                     <details close="">
-                        <summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">GEOLOGY AT A GLANCE Faulting in the Crust</summary>
+                        <summary style="font-weight:400;font-size:1em;line-height:1.25;margin:0">GEOLOGY AT A GLANCE Faulting in the Crust</summary>
                         <div class="indented">
                             <figure id="1d6971fe-bd2f-8028-863c-f5a53e6d6a4e" class="image">
                                 <a href="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdmVv3jCEINA7N4gubss2rIKTFkwJqytig-xMVAYKG3Qt2V0KRkwbwFTIQD9p6j54hMNc11iACdSVyKdphXJnlDl8yHy3dg7eThycM22eUId9nplS1XAXC-bIv1q55sYD2TnJMv7Wr5zB6tLBsg6w?key=sLaiAX-jUxSKndyjkR4j5wPr"><img style="width:525px" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdmVv3jCEINA7N4gubss2rIKTFkwJqytig-xMVAYKG3Qt2V0KRkwbwFTIQD9p6j54hMNc11iACdSVyKdphXJnlDl8yHy3dg7eThycM22eUId9nplS1XAXC-bIv1q55sYD2TnJMv7Wr5zB6tLBsg6w?key=sLaiAX-jUxSKndyjkR4j5wPr"
@@ -1510,7 +1533,7 @@
                                 <p id="1d6971fe-bd2f-809a-a73b-fc252d386d6b" class="">The majority of earthquakes happen on faults along plate boundaries because the relative motion of plates triggers slip on faults. We find different kinds of faulting at different types of plate boundaries.</p>
                                 <details
                                 open="">
-                                    <summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Divergent-Boundary Seismicity</strong></summary>
+                                    <summary style="font-weight:400;font-size:1em;line-height:1.25;margin:0"><strong>Divergent-Boundary Seismicity</strong></summary>
                                     <div class="indented">
                                         <p id="1d6971fe-bd2f-80e2-8b63-e8425e142115" class="">At divergent boundaries (mid-ocean ridges), two oceanic plates form and move apart. Divergent boundaries consist of spreading segments linked by transform faults. Therefore, two kinds of faults develop at divergent
                                             boundaries. Along spreading segments, stretching generates normal faults, whereas along transform faults, strike-slip displacement occurs <strong>(Fig. 10.19)</strong>. All earthquakes along mid-ocean ridges
@@ -1531,7 +1554,7 @@
                                     </div>
                         </details>
                         <details close="">
-                            <summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Transform-Boundary Seismicity</strong></summary>
+                            <summary style="font-weight:400;font-size:1em;line-height:1.25;margin:0"><strong>Transform-Boundary Seismicity</strong></summary>
                             <div class="indented">
                                 <p id="1d6971fe-bd2f-8095-bc97-dceda546bb8e" class="">At transform boundaries, where one plate slides past another without the production or consumption of oceanic lithosphere, most faulting results in strike-slip motion. The majority of transform faults in the world link
                                     segments of mid-ocean ridges, as we’ve just discussed. But a few, such as the San Andreas fault of California, the Alpine fault of New Zealand, and the Anatolian fault in Turkey, cut across continental lithosphere.
@@ -1570,7 +1593,7 @@
                             </div>
                         </details>
                         <details close="">
-                            <summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Convergent-Boundary Seismicity</strong></summary>
+                            <summary style="font-weight:400;font-size:1em;line-height:1.25;margin:0"><strong>Convergent-Boundary Seismicity</strong></summary>
                             <div class="indented">
                                 <p id="1d6971fe-bd2f-8032-9ae5-e62b44ade266" class="">
                                 </p>
@@ -1654,7 +1677,7 @@
                 <summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Earthquakes Due to Continental Rifting and Collision</summary>
                 <div class="indented">
                     <details close="">
-                        <summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Continental Rifts</strong></summary>
+                        <summary style="font-weight:400;font-size:1em;line-height:1.25;margin:0"><strong>Continental Rifts</strong></summary>
                         <div class="indented">
                             <p id="1d6971fe-bd2f-8025-b76e-ea7af2952c70" class="">The stretching of continental crust at continental rifts generates normal faults. Active rifts today include the East African Rift <strong>(Fig. 10.23a)</strong>, the Basin and Range Province (mostly in Nevada, Utah, and Arizona),
                                 and the Rio Grande Rift (in New Mexico). In all these places, shallow earthquakes, similar in nature to the earthquakes at mid-ocean ridges, rattle the landscape. In contrast to seismic belts along mid-ocean ridges, belts
@@ -1684,7 +1707,7 @@
                         </div>
                     </details>
                     <details close="">
-                        <summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Collision Zones</strong></summary>
+                        <summary style="font-weight:400;font-size:1em;line-height:1.25;margin:0"><strong>Collision Zones</strong></summary>
                         <div class="indented">
                             <p id="1d6971fe-bd2f-80f5-9259-f0de76f03498" class="">Two continents collide when the oceanic lithosphere that once separated them has been completely subducted. Such collisions produce great mountain ranges such as the Alpine-Himalayan chain <strong>(Fig. 10.23b)</strong>. Although
                                 a variety of earthquakes happen in collision zones, the most common earthquakes result from movement on thrust faults.</p>
@@ -2238,7 +2261,7 @@
                                     pumps, now without power, stopped functioning. Eventually, the water surrounding the reactor cores boiled away. Some of the superheated water separated into hydrogen and oxygen gas, which then exploded, thereby breaching
                                     the integrity of three of the four reactor buildings and releasing radioactivity into the environment <strong>(Fig. 10.38b)</strong>.</p>
                                 <details close="">
-                                    <summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">BOX 10.1 CONSIDER THIS . . . The 2010 Haiti Catastrophe</summary>
+                                    <summary style="font-weight:400;font-size:1em;line-height:1.25;margin:0">BOX 10.1 CONSIDER THIS . . . The 2010 Haiti Catastrophe</summary>
                                     <div class="indented">
                                         <p id="1d6971fe-bd2f-8056-9245-f199e49928f9" class="">The history of Haiti changed forever on the sunny afternoon of January 12, 2010. At 4:53 P.M., a 70-km-long segment of a strike-slip fault suddenly slipped by an average amount of 1.8 m and, locally, by as much
                                             as 4 m. The motion began only 25 km west-southwest of Port-au-Prince, and 13 km beneath the ground surface, so the shock waves of the resulting <em>M</em>W 7 earthquake reached the capital city in a matter of
@@ -2542,7 +2565,7 @@
                         id="1d6971fe-bd2f-8026-a172-e9d43b0fb5d4" class="">
                             </p>
                             <details close="">
-                                <summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">BOX 10.2 CONSIDER THIS . . . When Earthquake Waves Resonate—Beware!</summary>
+                                <summary style="font-weight:400;font-size:1em;line-height:1.25;margin:0">BOX 10.2 CONSIDER THIS . . . When Earthquake Waves Resonate—Beware!</summary>
                                 <div class="indented">
                                     <p id="1d6971fe-bd2f-80df-9288-cab985cc8529" class="">When you shine a flashlight, you produce white light. If you aim that beam at a prism, the light spreads into a spectrum of different colors, with each color representing light waves of a different frequency—the original
                                         beam of white light contained all those frequencies. Similarly, when an earthquake occurs, it produces seismic waves with a variety of frequencies. As the waves travel away from the focus, however, the Earth acts
@@ -2620,7 +2643,7 @@
                             <p id="1d6971fe-bd2f-801c-a379-fa9794e6588f" class="">Finally, families, schools, factories, and offices should hold earthquake preparedness drills. <strong>Box 10.3</strong> details how to be proactive and prepared for staying safe during an earthquake in your own home. As long
                                 as lithosphere plates continue to move, earthquakes will continue to shake us. But we can learn to reduce the harm they cause.</p>
                             <details close="">
-                                <summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">BOX 10.3 PUTTING GEOLOGY TO USE Staying Safe in Earthquake Country</summary>
+                                <summary style="font-weight:400;font-size:1em;line-height:1.25;margin:0">BOX 10.3 PUTTING GEOLOGY TO USE Staying Safe in Earthquake Country</summary>
                                 <div class="indented">
                                     <p id="1d6971fe-bd2f-801c-90b1-c1205feb43a2" class="">
                                     </p>
@@ -2823,7 +2846,7 @@
                         </li>
                     </ul>
                     <details close="">
-                        <summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">What Can You See? Faulted Landscapes</summary>
+                        <summary style="font-weight:400;font-size:1em;line-height:1.25;margin:0">What Can You See? Faulted Landscapes</summary>
                         <div class="indented">
                             <p id="1d6971fe-bd2f-8091-b8e9-e906e3fe9d3e" class="">While most earthquakes happen on faults deep underground, some faults intersect the ground surface and alter the landscape. Let’s see what can be learned from exposures of faults.</p>
                             <p id="1d6971fe-bd2f-80e7-9aff-cb53b96497be"
