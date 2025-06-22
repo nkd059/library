@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Video Clip Player with Next Button</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #111; color: #fff; text-align: center; padding: 2rem; }
+    video { width: 80%; max-width: 800px; margin-top: 2rem; }
+    input, button { margin: 1rem; padding: 0.5rem 1rem; font-size: 1rem; }
+    #clipInfo { margin-top: 1rem; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Randomized Video Clip Player</h1>
+
+  <input type="file" id="fileInput" accept=".txt"><br>
+  <video id="videoPlayer" controls autoplay></video><br>
+  <button id="nextButton" disabled>Next Clip</button>
+  <div id="clipInfo"></div>
+
+  <script>
+    let clips = [];
+    let currentClipIndex = 0;
+    const fileInput = document.getElementById('fileInput');
+    const video = document.getElementById('videoPlayer');
+    const nextButton = document.getElementById('nextButton');
+    const clipInfo = document.getElementById('clipInfo');
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function loadClip(index) {
+      if (index >= clips.length) {
+        clipInfo.textContent = "✅ All clips finished!";
+        video.src = "";
+        nextButton.disabled = true;
+        return;
+      }
+
+      const clip = clips[index];
+      clipInfo.textContent = `▶️ Clip ${index + 1}/${clips.length}: ${clip.start}s → ${clip.stop}s`;
+
+      video.src = clip.url;
+      video.onloadedmetadata = () => {
+        video.currentTime = clip.start;
+        video.play();
+      };
+
+      const stopTime = clip.stop;
+      const timeUpdateHandler = () => {
+        if (video.currentTime >= stopTime) {
+          video.pause();
+          video.removeEventListener('timeupdate', timeUpdateHandler);
+          currentClipIndex++;
+          setTimeout(() => loadClip(currentClipIndex), 1000);
+        }
+      };
+
+      video.removeEventListener('timeupdate', timeUpdateHandler);
+      video.addEventListener('timeupdate', timeUpdateHandler);
+      nextButton.disabled = false;
+    }
+
+    nextButton.addEventListener('click', () => {
+      video.pause();
+      currentClipIndex++;
+      loadClip(currentClipIndex);
+    });
+
+    fileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const lines = event.target.result.split('\n').filter(Boolean);
+        clips = lines.map(line => {
+          const [start, stop, ...urlParts] = line.trim().split(/\s+/);
+          return {
+            start: parseFloat(start),
+            stop: parseFloat(stop),
+            url: urlParts.join(' ')
+          };
+        });
+
+        shuffle(clips);
+        currentClipIndex = 0;
+        loadClip(currentClipIndex);
+      };
+
+      reader.readAsText(file);
+    });
+  </script>
+</body>
+</html>
