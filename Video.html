@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Randomized Video Clip Player</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #111; color: #fff; text-align: center; padding: 2rem; }
+    video { width: 80%; max-width: 800px; margin-top: 2rem; }
+    input[type="file"] { margin: 1rem; padding: 0.5rem; }
+  </style>
+</head>
+<body>
+  <h1>Randomized Video Clip Player</h1>
+
+  <input type="file" id="fileInput" accept=".txt"><br>
+  <div id="clipInfo"></div>
+  <video id="videoPlayer" controls autoplay></video>
+
+  <script>
+    let clips = [];
+    let currentClipIndex = 0;
+
+    const fileInput = document.getElementById('fileInput');
+    const video = document.getElementById('videoPlayer');
+    const clipInfo = document.getElementById('clipInfo');
+
+    // Shuffle function (Fisher–Yates)
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function loadClip(index) {
+      if (index >= clips.length) {
+        clipInfo.textContent = "All clips finished!";
+        return;
+      }
+
+      const clip = clips[index];
+      clipInfo.textContent = `Playing Clip ${index + 1}/${clips.length}: ${clip.start}s → ${clip.stop}s`;
+
+      video.src = clip.url;
+
+      video.onloadedmetadata = () => {
+        video.currentTime = clip.start;
+        video.play();
+      };
+
+      const timeUpdateHandler = () => {
+        if (video.currentTime >= clip.stop) {
+          video.pause();
+          video.removeEventListener('timeupdate', timeUpdateHandler);
+          currentClipIndex++;
+          setTimeout(() => loadClip(currentClipIndex), 1000); // 1s delay before next
+        }
+      };
+
+      video.removeEventListener('timeupdate', timeUpdateHandler);
+      video.addEventListener('timeupdate', timeUpdateHandler);
+    }
+
+    fileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const lines = event.target.result.split('\n').filter(Boolean);
+        clips = lines.map(line => {
+          const [start, stop, ...urlParts] = line.trim().split(/\s+/);
+          return {
+            start: parseFloat(start),
+            stop: parseFloat(stop),
+            url: urlParts.join(' ')
+          };
+        });
+
+        shuffle(clips); // randomize
+        currentClipIndex = 0;
+        loadClip(currentClipIndex); // start first one
+      };
+
+      reader.readAsText(file);
+    });
+  </script>
+</body>
+</html>
